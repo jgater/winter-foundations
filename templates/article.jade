@@ -1,0 +1,24 @@
+extends layout
+
+block prepend title
+  | #{ page.title } - 
+
+
+block content
+  include includes/author
+  .row
+    .large-12.columns
+      a.back(href='/').button.round.small &larr; back to index
+      br
+      br
+      h2= page.title
+    
+      article.single.post
+        section.content
+          != page.html
+        br
+        p
+          | [contact author: 
+          mixin author(page.metadata.author) ]
+        p
+          a.back(href='/').button.round.small &larr; back to index
